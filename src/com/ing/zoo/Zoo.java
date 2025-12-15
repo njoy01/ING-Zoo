@@ -67,6 +67,26 @@ public class Zoo {
                     ((TrickPerformer) animal).performTrick();
                 }
             }
+
+            // Specific error handling
+        } else {
+            String[] parts = input.split(" ");
+
+            if (parts.length > 2) {
+                String command = parts[0] + " " + parts[1];
+
+                if (command.equals("give meat")
+                        || command.equals("give leaves")
+                        || command.equals("perform trick")) {
+
+                    System.out.println(
+                            "The command " + command + " can't be applied to a specific animal."
+                    );
+                    return;
+                }
+            }
+            // Unknown command
+            System.out.println("Unknown command: " + input);
         }
     }
 }
