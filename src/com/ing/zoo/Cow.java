@@ -1,14 +1,14 @@
 package com.ing.zoo;
 
-public class Hippo extends Animal implements CanEatLeaves{
+public class Cow extends Animal implements CanEatLeaves {
 
-    public Hippo(String name) {
+    public Cow(String name) {
         super(name);
     }
 
     @Override
     public void sayHello() {
-        System.out.println("splash");
+        System.out.println("moo");
     }
 
     public void eatLeaves() {
