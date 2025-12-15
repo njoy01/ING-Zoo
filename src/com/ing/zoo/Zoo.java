@@ -4,21 +4,21 @@ import com.ing.zoo.animals.*;
 import com.ing.zoo.interfaces.CanEatLeaves;
 import com.ing.zoo.interfaces.CanEatMeat;
 import com.ing.zoo.interfaces.TrickPerformer;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Zoo {
     public static void main(String[] args) {
-        List<Animal> animals = new ArrayList<>();
-
-        animals.add(new Lion("henk"));
-        animals.add(new Hippo("elsa"));
-        animals.add(new Pig("dora"));
-        animals.add(new Tiger("wally"));
-        animals.add(new Zebra("marty"));
-        animals.add(new Bear("winnie"));
-        animals.add(new Cow("paula"));
+        List<Animal> animals = Arrays.asList(
+                new Lion("henk"),
+                new Hippo("elsa"),
+                new Pig("dora"),
+                new Tiger("wally"),
+                new Zebra("marty"),
+                new Bear("winnie"),
+                new Cow("paula")
+        );
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");
