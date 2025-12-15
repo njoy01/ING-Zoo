@@ -1,37 +1,95 @@
 package com.ing.zoo;
 
+import com.ing.zoo.animals.*;
+import com.ing.zoo.interfaces.CanEatLeaves;
+import com.ing.zoo.interfaces.CanEatMeat;
+import com.ing.zoo.interfaces.TrickPerformer;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Zoo {
-    public static void main(String[] args)
-    {
-        String[] commands = new String[4];
-        commands[0] = "hello";
-        commands[1] = "give leaves";
-        commands[2] = "give meat";
-        commands[3] = "perform trick";
-
-        Lion henk = new Lion();
-        henk.name = "henk";
-        Hippo elsa = new Hippo();
-        elsa.name = "elsa";
-        Pig dora = new Pig();
-        dora.name = "dora";
-        Tiger wally = new Tiger();
-        wally.name = "wally";
-        Zebra marty = new Zebra();
-        marty.name = "marty";
+    public static void main(String[] args) {
+        List<Animal> animals = Arrays.asList(
+                new Lion("henk"),
+                new Hippo("elsa"),
+                new Pig("dora"),
+                new Tiger("wally"),
+                new Zebra("marty"),
+                new Bear("winnie"),
+                new Cow("paula")
+        );
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");
+        String input = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
-        String input = scanner.nextLine();
-        if(input.equals(commands[0] + " henk"))
-        {
-            henk.sayHello();
+        // Hello command
+        if (input.equals("hello")) {
+            for (Animal animal : animals) {
+                animal.sayHello();
+            }
+        } else if (input.startsWith("hello ")) {
+            String name = input.substring(6);
+            boolean found = false;
+
+            for (Animal animal : animals) {
+                if (animal.getName().equalsIgnoreCase(name)) {
+                    animal.sayHello();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("No animal with the name " + name + " found.");
+            }
         }
-        else
-        {
+
+        // Give meat command
+        else if (input.equals("give meat")) {
+            for (Animal animal : animals) {
+                if (animal instanceof CanEatMeat) {
+                    ((CanEatMeat) animal).eatMeat();
+                }
+            }
+        }
+
+        // Give leaves command
+        else if (input.equals("give leaves")) {
+            for (Animal animal : animals) {
+                if (animal instanceof CanEatLeaves) {
+                    ((CanEatLeaves) animal).eatLeaves();
+                }
+            }
+        }
+
+        // Perform tricks command
+        else if (input.equals("perform trick")) {
+            for (Animal animal : animals) {
+                if (animal instanceof TrickPerformer) {
+                    ((TrickPerformer) animal).performTrick();
+                }
+            }
+
+            // Specific error handling
+        } else {
+            String[] parts = input.split(" ");
+
+            if (parts.length > 2) {
+                String command = parts[0] + " " + parts[1];
+
+                if (command.equals("give meat")
+                        || command.equals("give leaves")
+                        || command.equals("perform trick")) {
+
+                    System.out.println(
+                            "The command " + command + " can't be applied to a specific animal."
+                    );
+                    return;
+                }
+            }
+            // Unknown command
             System.out.println("Unknown command: " + input);
         }
     }
