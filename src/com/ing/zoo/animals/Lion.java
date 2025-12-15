@@ -1,4 +1,6 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
+
+import com.ing.zoo.interfaces.CanEatMeat;
 
 public class Lion extends Animal implements CanEatMeat {
 

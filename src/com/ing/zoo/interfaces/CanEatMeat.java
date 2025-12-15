@@ -1,4 +1,4 @@
-package com.ing.zoo;
+package com.ing.zoo.interfaces;
 
 public interface CanEatMeat {
     void eatMeat();

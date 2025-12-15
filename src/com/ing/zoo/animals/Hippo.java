@@ -1,6 +1,8 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
 
-public class Hippo extends Animal implements CanEatLeaves{
+import com.ing.zoo.interfaces.CanEatLeaves;
+
+public class Hippo extends Animal implements CanEatLeaves {
 
     public Hippo(String name) {
         super(name);

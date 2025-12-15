@@ -1,6 +1,6 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
 
-import java.util.Random;
+import com.ing.zoo.interfaces.CanEatLeaves;
 
 public class Zebra extends Animal implements CanEatLeaves {
 

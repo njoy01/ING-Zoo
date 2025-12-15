@@ -1,4 +1,6 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
+
+import com.ing.zoo.interfaces.CanEatLeaves;
 
 public class Cow extends Animal implements CanEatLeaves {
 

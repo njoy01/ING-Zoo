@@ -1,4 +1,7 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
+
+import com.ing.zoo.interfaces.CanEatMeat;
+import com.ing.zoo.interfaces.TrickPerformer;
 
 public class Bear extends Animal implements CanEatMeat, TrickPerformer {
 

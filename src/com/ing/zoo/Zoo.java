@@ -1,5 +1,9 @@
 package com.ing.zoo;
 
+import com.ing.zoo.animals.*;
+import com.ing.zoo.interfaces.CanEatLeaves;
+import com.ing.zoo.interfaces.CanEatMeat;
+import com.ing.zoo.interfaces.TrickPerformer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,13 +12,13 @@ public class Zoo {
     public static void main(String[] args) {
         List<Animal> animals = new ArrayList<>();
 
-        animals.add(new Lion("Henk"));
-        animals.add(new Hippo("Hlsa"));
-        animals.add(new Pig("Dora"));
-        animals.add(new Tiger("Wally"));
-        animals.add(new Zebra("Marty"));
-        animals.add(new Bear("Winnie"));
-        animals.add(new Cow("Paula"));
+        animals.add(new Lion("henk"));
+        animals.add(new Hippo("elsa"));
+        animals.add(new Pig("dora"));
+        animals.add(new Tiger("wally"));
+        animals.add(new Zebra("marty"));
+        animals.add(new Bear("winnie"));
+        animals.add(new Cow("paula"));
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");

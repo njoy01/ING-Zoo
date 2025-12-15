@@ -1,4 +1,8 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
+
+import com.ing.zoo.interfaces.CanEatLeaves;
+import com.ing.zoo.interfaces.CanEatMeat;
+import com.ing.zoo.interfaces.TrickPerformer;
 
 import java.util.Random;
 
