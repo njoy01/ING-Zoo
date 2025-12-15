@@ -20,6 +20,7 @@ public class Zoo {
         System.out.print("Voer uw command in: ");
         String input = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
+        // Hello command
         if (input.equals("hello")) {
             for (Animal animal : animals) {
                 animal.sayHello();
@@ -38,6 +39,33 @@ public class Zoo {
 
             if (!found) {
                 System.out.println("No animal with the name " + name + " found.");
+            }
+        }
+
+        // Give meat command
+        else if (input.equals("give meat")) {
+            for (Animal animal : animals) {
+                if (animal instanceof CanEatMeat) {
+                    ((CanEatMeat) animal).eatMeat();
+                }
+            }
+        }
+
+        // Give leaves command
+        else if (input.equals("give leaves")) {
+            for (Animal animal : animals) {
+                if (animal instanceof CanEatLeaves) {
+                    ((CanEatLeaves) animal).eatLeaves();
+                }
+            }
+        }
+
+        // Perform tricks command
+        else if (input.equals("perform trick")) {
+            for (Animal animal : animals) {
+                if (animal instanceof TrickPerformer) {
+                    ((TrickPerformer) animal).performTrick();
+                }
             }
         }
     }
